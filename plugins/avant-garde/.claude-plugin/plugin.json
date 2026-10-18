@@ -1,0 +1,8 @@
+{
+  "name": "avant-garde",
+  "version": "0.1.0",
+  "description": "Les fondations avant le code : 6 documents de cadrage, une porte de sécurité en 10 points, STATE.md pour la reprise de session. Version skill pure — les rails mécaniques (hooks) viendront après observation terrain.",
+  "author": {
+    "name": "Alexandre Lopez & Claude"
+  }
+}
