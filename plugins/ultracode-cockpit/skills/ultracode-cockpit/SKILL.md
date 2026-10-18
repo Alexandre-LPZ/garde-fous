@@ -1,7 +1,6 @@
 ---
 name: ultracode-cockpit
 description: À utiliser dès que l'utilisateur évoque ultracode, les Dynamic Workflows, un workflow, des agents parallèles ou des sous-agents, ou sa consommation de tokens ; ou qu'il lance une tâche lourde — étude, rapport, recherche approfondie (deep research), analyse exhaustive, refonte, génération ou exploration massive, toute tâche qui mobiliserait un ou plusieurs sous-agents. Impose un triage en paliers, un devis avant toute dépense importante, et la redescente après usage.
-allowed-tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 
 # UltraCode Cockpit — toute la puissance, la main sur la manette
