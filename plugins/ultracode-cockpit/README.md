@@ -1,0 +1,19 @@
+# UltraCode Cockpit — plugin
+
+The [UltraCode Cockpit skill](https://github.com/Alexandre-LPZ/ultracode-cockpit) (tiered triage, estimate before any agent spend, kill-switch, flight report) **plus mechanical rails**:
+
+- the GO token is minted by the human's word alone (`UserPromptSubmit` hook) — a guard hook denies any agent attempt to write it;
+- **Two-Key lock**: a GO with no pending quote mints nothing — an authorization given in advance is not a GO;
+- a customs gate on every subagent launch: fresh token required, cap decremented per agent, consumed at zero. A small free allowance (`COCKPIT_FREE_AGENTS`, default 1/session) keeps routine tasks frictionless;
+- `BYPASS` (60 min, logged) and `STOP` belong to the human alone.
+
+## Install
+
+```bash
+claude plugin marketplace add Alexandre-LPZ/garde-fous
+claude plugin install ultracode-cockpit@garde-fous
+```
+
+`/ultracode-cockpit:cockpit` boards the cockpit in any session.
+
+The hooks are under 120 lines of readable bash, zero dependencies — read them in [`hooks/scripts/`](hooks/scripts/) before installing. Threat model: protection against drift and prompt injection, not against an adversary with an unrestricted shell. Field-test history: see the [marketplace releases](https://github.com/Alexandre-LPZ/garde-fous/releases) and the [skill repo](https://github.com/Alexandre-LPZ/ultracode-cockpit).
