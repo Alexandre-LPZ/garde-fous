@@ -1,0 +1,38 @@
+{
+  "description": "UltraCode Cockpit — rails mécaniques : le jeton GO est posé par la parole humaine (UserPromptSubmit), exigé et décompté par la douane des sous-agents (PreToolUse), et protégé contre toute écriture par l'agent.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/mint-go.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Task|Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/gate-task.sh\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/guard-token.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
