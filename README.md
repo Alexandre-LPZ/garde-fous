@@ -19,7 +19,7 @@ claude plugin install avant-garde@garde-fous   # optional, independent
 
 ## How the Cockpit rails work (the honest part)
 
-Prose binds an AI by conviction; under pressure, conviction can crack — we measured it. These rails bind by construction, in ~80 lines of readable bash, zero dependencies:
+Prose binds an AI by conviction; under pressure, conviction can crack — we measured it. These rails bind by construction, in under 120 lines of readable bash, zero dependencies:
 
 1. **The quote** — when Claude displays a P2/P3 estimate, it writes the quoted agent cap into `.claude/.cockpit_quote`. That's the invoice, never the GO.
 2. **The human's word mints the token** — a `UserPromptSubmit` hook (which runs outside the agent's hands) turns the quote into `.claude/.cockpit_go` **only** when the human's own message starts with `GO`, `P2` or `P3` **and** a quote is pending. "Just launch it, I pre-authorize" mints nothing: an authorization given in advance is not a GO.
