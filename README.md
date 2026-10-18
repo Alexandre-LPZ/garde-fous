@@ -19,13 +19,14 @@ claude plugin install avant-garde@garde-fous   # optional, independent
 
 ## How the Cockpit rails work (the honest part)
 
-Prose binds an AI by conviction; under pressure, conviction can crack — we measured it. These rails bind by construction, in under 120 lines of readable bash, zero dependencies:
+Prose binds an AI by conviction; under pressure, conviction can crack — we measured it. These rails bind by construction, in ~210 lines of readable, commented bash, zero dependencies:
 
 1. **The quote** — when Claude displays a P2/P3 estimate, it writes the quoted agent cap into `.claude/.cockpit_quote`. That's the invoice, never the GO.
 2. **The human's word mints the token** — a `UserPromptSubmit` hook (which runs outside the agent's hands) turns the quote into `.claude/.cockpit_go` **only** when the human's own message starts with `GO`, `P2` or `P3` **and** a quote is pending. "Just launch it, I pre-authorize" mints nothing: an authorization given in advance is not a GO.
 3. **The customs gate** — a `PreToolUse` hook on subagent launches requires a fresh, unexpired token and **decrements the cap on every agent**. At zero, the token is consumed. A small free allowance (default 1 subagent/session, `COCKPIT_FREE_AGENTS`) keeps routine tasks frictionless.
-4. **The vault is out of reach** — a guard hook denies any agent attempt to write the token or the counter. Only the human's word opens the gate.
+4. **The vault is out of reach** — a guard hook denies any agent attempt to write the token or the counter (since v0.1.1, judged by the operation's *target*, so maintaining the plugin's own sources stays possible). Only the human's word opens the gate.
 5. **The relief valve** — the human (and only the human) can type `BYPASS` (60 min, logged) or `STOP`/`NON` to cancel everything. A guardrail must protect you from the cliff, never stop you from walking on the sidewalk.
+6. **The harness fallback (v0.1.1)** — some harnesses (Claude Cowork) run `PreToolUse` but not `UserPromptSubmit`, so the human's word never reaches the mint hook. With no token present, the customs gate reads the **last human message from the session transcript** (written by the harness, outside the agent's hands) and applies the same Two-Key rules — GO/P2/P3 with a pending quote, BYPASS, STOP — with a replay fingerprint (one message mints once) and a 15-minute freshness window. We disclose this plainly: the gate reads your transcript file, locally, for those five keywords. A forged transcript is deliberate adversity, outside the threat model.
 
 **Threat model, stated plainly**: these rails protect against *drift* — degraded context, pressure, prompt injection — not against an adversary with an unrestricted shell. Defense in depth, not a vault door. The real gauges live in `/workflows`.
 
