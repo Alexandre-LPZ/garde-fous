@@ -1,6 +1,6 @@
 {
   "name": "ultracode-cockpit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Le régulateur du mode ultracode / Dynamic Workflows : triage en paliers, devis avant toute dépense d'agents — et des rails mécaniques : le jeton GO est posé par la parole humaine seule, exigé et décompté par une douane sur les sous-agents.",
   "author": {
     "name": "Alexandre Lopez & Claude"
