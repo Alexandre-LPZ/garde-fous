@@ -1,0 +1,19 @@
+{
+  "name": "garde-fous",
+  "description": "Les garde-fous du duo humain-IA : UltraCode Cockpit (réguler la dépense d'agents) et Avant-Garde (les fondations avant le code). Guardrails for the human-AI duo.",
+  "owner": {
+    "name": "Alexandre Lopez"
+  },
+  "plugins": [
+    {
+      "name": "ultracode-cockpit",
+      "source": "./plugins/ultracode-cockpit",
+      "description": "Devis avant toute dépense d'agents, avec des rails mécaniques : le jeton GO n'est posé que par la parole humaine, jamais par l'agent."
+    },
+    {
+      "name": "avant-garde",
+      "source": "./plugins/avant-garde",
+      "description": "6 documents de fondation + porte de sécurité avant tout code. Version skill pure — les rails mécaniques viendront après le terrain."
+    }
+  ]
+}
