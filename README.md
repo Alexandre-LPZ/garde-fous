@@ -9,6 +9,18 @@ A Claude Code plugin marketplace carrying two independent plugins. Install only 
 | **ultracode-cockpit** | Your token budget. Claude Code's ultracode mode (Dynamic Workflows, up to 1,000 agents) silences its own native cost guardrails. | The [UltraCode Cockpit skill](https://github.com/Alexandre-LPZ/ultracode-cockpit) + **mechanical rails**: the GO token is minted by the human's word alone, demanded and decremented by a customs gate on every subagent. `/ultracode-cockpit:cockpit` to board. |
 | **avant-garde** | Your project's foundations. Vibe coding without written foundations ships open databases and leaked keys. | The [Avant-Garde skill](https://github.com/Alexandre-LPZ/avant-garde) (6 foundation documents, 10-point security gate, STATE.md resume memory) + `/avant-garde:avant-garde`. Pure skill for now — its hooks will come after field observation, never before. |
 
+## Where each plugin lives
+
+| Plugin | Claude plug-in directory | This marketplace (GitHub) |
+|---|---|---|
+| **avant-garde** | submitted, pending review | yes |
+| **ultracode-cockpit** | **not eligible**: the directory accepts command hooks and scripts only from Verified organizations, and this is an individual's project | **yes — the only place to get it** |
+
+The cockpit *is* its hooks: a quote, a GO token minted by the human's word, a customs gate on every
+subagent. Stripping them to fit the directory would ship a cockpit with no seatbelt, under the same
+name. We won't. Install it from here, read the three bash scripts first, and if you need the
+directory version of a guardrail, take `avant-garde`: it binds by prose and executes nothing.
+
 ## Install
 
 ```bash

@@ -4,6 +4,8 @@ The [Avant-Garde skill](https://github.com/Alexandre-LPZ/avant-garde): foundatio
 
 This cartridge is a **pure skill**: no hooks, nothing executes on your machine. Its mechanical rails will come after field observation, never before — we don't pour a rule into concrete until it has survived in prose.
 
+Its sibling, `ultracode-cockpit`, enforces its rules with hooks and is therefore available only from this marketplace, not from the Claude plug-in directory.
+
 ## Install
 
 ```bash
