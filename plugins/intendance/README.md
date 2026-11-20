@@ -1,5 +1,7 @@
 # Intendance — réfléchir à l'outillage avant de travailler
 
+*Dépôt source : [Alexandre-LPZ/intendance](https://github.com/Alexandre-LPZ/intendance). Cette copie est celle de la marketplace garde-fous.*
+
 *Français ci-dessous · [English](#intendance--think-about-your-tooling-before-you-work)*
 
 **Intendance** est un skill Claude qui oblige l'assistant, au démarrage d'un projet et à chaque

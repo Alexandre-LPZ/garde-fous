@@ -1,10 +1,20 @@
 {
   "name": "intendance",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Revue d'outillage obligatoire au démarrage d'un projet et à chaque tournant : inventaire des skills, plugins et connecteurs réellement chargés, croisement avec la mission, proposition en trois colonnes (requis / à un tournant / hors sujet), attente de l'accord humain. Rien n'est activé ni désactivé sans lui.",
-  "author": { "name": "Alexandre Lopez & Claude" },
+  "author": {
+    "name": "Alexandre Lopez & Claude"
+  },
   "license": "MIT",
-  "homepage": "https://github.com/Alexandre-LPZ/garde-fous/tree/main/plugins/intendance",
+  "homepage": "https://github.com/Alexandre-LPZ/intendance",
   "repository": "https://github.com/Alexandre-LPZ/garde-fous",
-  "keywords": ["outillage", "skills", "connecteurs", "mcp", "claude-code", "cowork", "garde-fous"]
+  "keywords": [
+    "outillage",
+    "skills",
+    "connecteurs",
+    "mcp",
+    "claude-code",
+    "cowork",
+    "garde-fous"
+  ]
 }
