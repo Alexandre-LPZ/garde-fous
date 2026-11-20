@@ -2,10 +2,11 @@
 
 **Guardrails for the human-AI duo — governance enforced by tools, not by prose.**
 
-A Claude Code plugin marketplace carrying two independent plugins. Install only what you need:
+A Claude plugin marketplace carrying three independent plugins (Claude Code, Cowork and the Claude app). Install only what you need:
 
 | Plugin | What it guards | What's inside |
 |---|---|---|
+| **intendance** | Your tooling. An assistant sees what is installed, but nothing makes it ask *which tools this mission needs* or *what is missing* — and every loaded tool costs context on every turn. | The [Intendance skill](plugins/intendance/README.md): a mandatory tooling review at project start and at every turning point — inventory of loaded skills, plugins and connectors, a three-column proposal (required / at a turning point / off-topic), and the human's go before anything is enabled or disabled. Pure skill, plus the **three instruction layers** that make it mandatory in every interface. `/intendance:intendance`. |
 | **ultracode-cockpit** | Your token budget. Claude Code's ultracode mode (Dynamic Workflows, up to 1,000 agents) silences its own native cost guardrails. | The [UltraCode Cockpit skill](https://github.com/Alexandre-LPZ/ultracode-cockpit) + **mechanical rails**: the GO token is minted by the human's word alone, demanded and decremented by a customs gate on every subagent. `/ultracode-cockpit:cockpit` to board. |
 | **avant-garde** | Your project's foundations. Vibe coding without written foundations ships open databases and leaked keys. | The [Avant-Garde skill](https://github.com/Alexandre-LPZ/avant-garde) (6 foundation documents, 10-point security gate, STATE.md resume memory) + `/avant-garde:avant-garde`. Pure skill for now — its hooks will come after field observation, never before. |
 
@@ -13,6 +14,7 @@ A Claude Code plugin marketplace carrying two independent plugins. Install only 
 
 | Plugin | Claude plug-in directory | This marketplace (GitHub) |
 |---|---|---|
+| **intendance** | not submitted yet | yes |
 | **avant-garde** | submitted, pending review | yes |
 | **ultracode-cockpit** | **not eligible**: the directory accepts command hooks and scripts only from Verified organizations, and this is an individual's project | **yes — the only place to get it** |
 
@@ -27,7 +29,10 @@ directory version of a guardrail, take `avant-garde`: it binds by prose and exec
 claude plugin marketplace add Alexandre-LPZ/garde-fous
 claude plugin install ultracode-cockpit@garde-fous
 claude plugin install avant-garde@garde-fous   # optional, independent
+claude plugin install intendance@garde-fous    # optional, independent — then add the instruction layers (see its README)
 ```
+
+In the Claude app or Cowork: Plug-ins → Add marketplace → `Alexandre-LPZ/garde-fous` → install the plugin you need.
 
 ## How the Cockpit rails work (the honest part)
 
@@ -45,8 +50,8 @@ Prose binds an AI by conviction; under pressure, conviction can crack — we mea
 ## Trust
 
 - Every hook is short, readable bash. Read them before installing: [`mint-go.sh`](plugins/ultracode-cockpit/hooks/scripts/mint-go.sh) · [`gate-task.sh`](plugins/ultracode-cockpit/hooks/scripts/gate-task.sh) · [`guard-token.sh`](plugins/ultracode-cockpit/hooks/scripts/guard-token.sh)
-- Hooks come **only** with the cockpit plugin — install `avant-garde` alone and nothing executes on your machine.
-- The skills' source of truth remains their own repos ([ultracode-cockpit](https://github.com/Alexandre-LPZ/ultracode-cockpit), [avant-garde](https://github.com/Alexandre-LPZ/avant-garde)), synced here at each release.
+- Hooks come **only** with the cockpit plugin — install `avant-garde` or `intendance` alone and nothing executes on your machine.
+- The skills' source of truth remains their own repos ([ultracode-cockpit](https://github.com/Alexandre-LPZ/ultracode-cockpit), [avant-garde](https://github.com/Alexandre-LPZ/avant-garde)), synced here at each release. Intendance lives here.
 - Hook scripts were unit-tested against the failure modes that designed them: self-minting attempts, pre-authorization injection, cap exhaustion, token expiry. See the repos' releases for the full test history — failures included.
 
 ## Credits
