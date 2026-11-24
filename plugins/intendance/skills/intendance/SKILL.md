@@ -1,6 +1,6 @@
 ---
 name: intendance
-description: Revue d'outillage obligatoire au démarrage d'un projet, d'une mission ou d'une session de travail, et à chaque tournant du projet. Inventorie les skills, plugins et connecteurs réellement disponibles, les croise avec la mission, propose ce qu'il faut activer, ajouter ou laisser de côté, et attend l'accord de l'humain avant tout. Utiliser systématiquement quand l'humain ouvre un projet, écrit ou relit un CLAUDE.md, demande « de quoi a-t-on besoin », « quels outils », « on a ce qu'il faut ? », change d'étape (recherche → construction → mise en ligne), ou quand un besoin apparaît qu'aucun outil chargé ne couvre. S'applique dans Claude Code, Cowork et l'app Claude. Oblige à réfléchir à l'outillage, jamais à tout utiliser. EN: Mandatory tooling review at project start and at every turning point — inventory of loaded skills, plugins and connectors, proposal (required / at a turning point / off-topic), human go before anything is enabled or disabled. Use whenever the user opens a project, writes or reviews a CLAUDE.md, asks what tools are needed, or changes stage.
+description: Revue d'outillage obligatoire au démarrage d'un projet, d'une mission ou d'une session de travail, et à chaque tournant du projet. Inventorie les skills, plugins et connecteurs réellement disponibles, les croise avec la mission, propose ce qu'il faut activer, ajouter ou laisser de côté, et attend l'accord de l'humain avant tout. Utiliser systématiquement quand l'humain ouvre un projet, écrit ou relit un CLAUDE.md, demande « de quoi a-t-on besoin », « quels outils », « on a ce qu'il faut ? », change d'étape (recherche → construction → mise en ligne), ou quand un besoin apparaît qu'aucun outil chargé ne couvre. S'applique dans Claude Code, Cowork et l'app Claude. Oblige à réfléchir à l'outillage, jamais à tout utiliser. Propose aussi le modèle et l'effort adaptés à chaque étape (et le conseiller /advisor dans Claude Code). EN: Mandatory tooling review at project start and at every turning point — inventory of loaded skills, plugins and connectors, proposal (required / at a turning point / off-topic), human go before anything is enabled or disabled. Use whenever the user opens a project, writes or reviews a CLAUDE.md, asks what tools are needed, or changes stage.
 ---
 
 # Intendance — réfléchir à l'outillage avant de travailler
@@ -45,7 +45,7 @@ Trois questions, en une ligne chacune :
 - Quelles contraintes (sécurité, données personnelles, budget de jetons, validation humaine) ?
 
 Si le CLAUDE.md du projet a une section **Outillage**, la lire d'abord : elle fait foi. S'il n'en a
-pas, en proposer une à la fin (étape 5).
+pas, en proposer une à la fin (étape 6).
 
 ### 3. Croisement
 Classer chaque outil disponible dans une de ces trois colonnes, avec une raison d'une ligne :
@@ -59,18 +59,41 @@ Puis les **manques** : ce que la mission demande et que rien ne couvre. Pour cha
 existe (connecteur du répertoire, plugin connu, skill à écrire) et ce que ça implique (compte,
 clé, coût, données qui sortent). Ne pas inventer un outil ; si on ne sait pas, écrire « à chercher ».
 
-### 4. Proposition, puis attente
+### 4. Modèle et effort pour l'étape
+Les outils ne sont pas seuls à coûter : le modèle et son effort aussi. Proposer, en une ligne, ce
+que l'étape demande :
+- **Décision** (choisir une approche, architecture, doctrine, relecture avant de déclarer fini) :
+  le modèle le plus fort disponible, effort élevé.
+- **Exécution** d'un plan validé (écrire, mettre en forme, corriger) : un modèle plus léger, effort
+  moyen. Le modèle le plus fort partout coûte sans rien ajouter.
+- **Dans Claude Code** :
+  - pour une tâche longue, proposer le conseiller : `/advisor fable` (ou `opus`) avec un modèle
+    principal plus léger (`/model opus` ou `/model sonnet`). Le principal travaille, le conseiller
+    n'est consulté qu'aux décisions. Il relit toute la conversation à chaque appel, sans cache :
+    une session neuve par tâche. Avec Fable en principal, seul Fable peut conseiller : aucune
+    économie ;
+  - l'effort se règle avec `/effort` (low, medium, high, xhigh, max) ; `/usage` donne la
+    consommation de la session ;
+  - si la barre d'état n'affiche pas le modèle, l'effort, le contexte et la consommation, proposer
+    `/statusline`.
+- **Dans l'app et Cowork** : ni conseiller ni barre d'état ; le modèle se choisit par conversation.
+  Proposer de prendre la décision dans une conversation sur le modèle fort, et de faire l'exécution
+  sur un modèle plus léger.
+- Une limite atteinte (quota, erreur 429) se dit ; elle ne se contourne pas.
+
+### 5. Proposition, puis attente
 Présenter le résultat en un tableau court (voir format), terminer par **une question** : « on part
 avec ça ? ». Ne rien activer, installer ni désactiver avant la réponse. Si l'humain n'est pas là,
 travailler avec les outils « requis » déjà chargés et laisser la proposition en tête du travail.
 
-### 5. Trace dans le projet
+### 6. Trace dans le projet
 Quand l'humain a tranché, proposer d'écrire la section Outillage du CLAUDE.md du projet :
 
 ```markdown
 ## Outillage (revu le AAAA-MM-JJ)
 Requis : <outil> — <pourquoi> ; <outil> — <pourquoi>
 À un tournant : <outil> — <quand>
+Modèle : <étape> → <modèle>, effort <niveau> ; conseiller <modèle> (Claude Code)
 Règle : au premier message de chaque session, vérifier que les outils requis sont chargés, dire ce
 qui manque, et proposer un ajout quand le projet change d'étape. Un nouvel outil = une question :
 « pour quelle étape de ce projet ? ».
@@ -91,6 +114,7 @@ Vu dans la session : N skills, N connecteurs chargés, N plugins (ou « non list
 | … | Hors sujet ici | coûte du contexte, à vous de voir |
 
 Manques : <besoin> → <où ça existe, ce que ça implique> / « à chercher »
+Modèle : <étape> → <modèle>, effort <niveau> (+ conseiller dans Claude Code) — <pourquoi>
 Question : on part avec ça ?
 ```
 
@@ -102,6 +126,7 @@ trop d'outils sont chargés : le dire, c'est aussi le rôle du skill.
   l'humain ; un assistant qui touche à la configuration sans accord perd la confiance.
 - Il ne recommande pas d'utiliser un outil « parce qu'il est là ». La bonne liste est courte.
 - Il ne refait pas la revue à chaque message. Une fois par projet, puis aux tournants.
+- Il ne change ni le modèle, ni l'effort, ni le conseiller : il propose, l'humain tape la commande.
 - Il ne remplace pas les outils de diagnostic de l'environnement (dans Claude Code, `/skill-doctor`
   mesure le coût et l'usage des skills ; Intendance décide du *sens*, pas du *coût*).
 
@@ -125,5 +150,7 @@ Vu dans la session : 12 skills, 6 connecteurs chargés, plugins non listables ic
 | Bigdata.com, Quiver | Hors sujet ici | données financières ; coûte du contexte |
 
 Manques : analyse d'accessibilité → skill « design:accessibility-review » si installé, sinon à chercher
+Modèle : construction des pages → Opus, effort medium, conseiller Fable (Claude Code) ; choix de la
+        maquette et contrôle avant mise en ligne → modèle le plus fort, effort high
 Question : on part avec ça ?
 ```

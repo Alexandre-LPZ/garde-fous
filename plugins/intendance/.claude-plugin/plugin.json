@@ -1,7 +1,7 @@
 {
   "name": "intendance",
-  "version": "0.1.1",
-  "description": "Revue d'outillage obligatoire au démarrage d'un projet et à chaque tournant : inventaire des skills, plugins et connecteurs réellement chargés, croisement avec la mission, proposition en trois colonnes (requis / à un tournant / hors sujet), attente de l'accord humain. Rien n'est activé ni désactivé sans lui.",
+  "version": "0.2.0",
+  "description": "Revue d'outillage obligatoire au démarrage d'un projet et à chaque tournant : inventaire des skills, plugins et connecteurs réellement chargés, croisement avec la mission, proposition en trois colonnes (requis / à un tournant / hors sujet), attente de l'accord humain. Rien n'est activé ni désactivé sans lui. Propose aussi le modèle et l'effort adaptés à chaque étape (conseiller /advisor dans Claude Code).",
   "author": {
     "name": "Alexandre Lopez & Claude"
   },

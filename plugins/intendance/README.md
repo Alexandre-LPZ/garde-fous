@@ -31,11 +31,18 @@ Vu dans la session : 12 skills, 6 connecteurs chargés, plugins non listables ic
 | Supabase | Hors sujet ici | pas de base de données prévue ; coûte du contexte |
 
 Manques : analyse d'accessibilité → skill « design:accessibility-review » si installé, sinon à chercher
+Modèle : construction des pages → Opus, effort medium, conseiller Fable (Claude Code)
 Question : on part avec ça ?
 ```
 
 Puis, quand l'humain a tranché, le skill propose d'écrire une section **Outillage** dans le
 CLAUDE.md du projet, pour que la session suivante la lise sans refaire l'inventaire.
+
+**Depuis la 0.2 : le modèle et l'effort.** Les outils ne sont pas seuls à coûter. À chaque étape,
+la revue propose aussi le modèle et l'effort adaptés : le plus fort pour les décisions, un plus
+léger pour l'exécution. Dans Claude Code, elle propose le conseiller (`/advisor`), le réglage de
+l'effort (`/effort`) et une barre d'état (`/statusline`) qui affiche en permanence le modèle,
+l'effort, le contexte et la consommation. Elle ne change rien elle-même.
 
 ## L'installer ne suffit pas : les trois couches
 
@@ -142,6 +149,11 @@ Off-topic here (costs context, your call)**, then the gaps (where the missing to
 it implies), and one question: "shall we go with this?". Once the human decides, the skill offers
 to write a **Tooling** section in the project's CLAUDE.md so the next session reads it instead of
 redoing the inventory.
+
+**Since 0.2: model and effort.** Tools are not the only cost. At every stage the review also
+proposes the right model and effort: the strongest for decisions, a lighter one for execution. In
+Claude Code it proposes the advisor (`/advisor`), the effort level (`/effort`) and a status line
+(`/statusline`) that always shows model, effort, context and usage. It changes nothing itself.
 
 ## Installing is not enough: the three layers
 An installed skill is *available*. To make it *mandatory*, the assistant must be told to run it,
